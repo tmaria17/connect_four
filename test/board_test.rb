@@ -12,8 +12,8 @@ class BoardTest < Minitest::Test
 
   def test_it_prints
     board = Board.new
-    expected= 
-    "ABCDEFG \n ....... \n ....... \n ....... \n ....... \n ....... \n ....... "
+    expected=
+  "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n"
     assert_equal expected , board.print
   end
 end

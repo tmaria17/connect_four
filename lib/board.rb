@@ -1,8 +1,8 @@
 class Board
 
   def initialize
-    @columns =    ["A", "B", "C", "D", "E", "F", "G"]
-    @rows= {1 =>  [".", ".", ".", ".", ".", ".", "."],
+    @columns =   ["A", "B", "C", "D", "E", "F", "G"]
+    @rows= {1 => [".", ".", ".", ".", ".", ".", "."],
           2 =>   [".", ".", ".", ".", ".", ".", "."],
           3 =>   [".", ".", ".", ".", ".", ".", "."],
           4 =>   [".", ".", ".", ".", ".", ".", "."],
@@ -11,12 +11,15 @@ class Board
           }
   end
 
+
   def print
-    puts @columns.join
-    @rows.values.each do |board_spots|
-       puts board_spots.join
-     end
-   end
+    layout_game = @rows.values.map do |board_spots|
+      board_spots.join + "\n"
+    end
+    @columns.join + "\n"+ layout_game.join
+  end
+
+
 
 
 
