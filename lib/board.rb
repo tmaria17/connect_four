@@ -3,14 +3,6 @@ class Board
 
 
   def initialize
-  #  @columns =   ["A", "B", "C", "D", "E", "F", "G"]
-  #  @rows= {1 => [".", ".", ".", ".", ".", ".", "."],
-  #        2 =>   [".", ".", ".", ".", ".", ".", "."],
-  #        3 =>   [".", ".", ".", ".", ".", ".", "."],
-  #        4 =>   [".", ".", ".", ".", ".", ".", "."],
-  #        5 =>   [".", ".", ".", ".", ".", ".", "."],
-  #        6 =>   [".", ".", ".", ".", ".", ".", "."]
-  #      }
   @layout ={ "A" => [".",".",".",".",".","."],
       "B" => [".",".",".",".",".","."],
       "C" => [".",".",".",".",".","."],
@@ -28,13 +20,27 @@ class Board
    new_rows = rows.map do |row|
               row.join
             end
-   @layout.keys.join + ("\n") + new_rows.join("\n")
+   @layout.keys.join + ("\n") + new_rows.reverse.join("\n")
  end
 
   def place_piece(user_move)
-    @layout[user_move].push("x")
-    @layout[user_move].shift
-  end
+      player_guess= @layout[user_move]
+      space = player_guess.find do |blank_space|
+                           blank_space == "."
+                         end
+      space.replace "x"
+    end
+
+
+  def computer_move
+      random_letter = @layout.keys.sample
+      space = @layout[random_letter].find do |blank_space|
+                    blank_space = "."
+                  end
+              space.replace "o"
+    end
+
+
 
 
 
