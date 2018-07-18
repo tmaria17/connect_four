@@ -13,7 +13,16 @@ class BoardTest < Minitest::Test
   def test_it_prints
     board = Board.new
     expected=
-  "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n"
-    assert_equal expected , board.print
+  "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n......."
+    assert_equal expected , board.print_layout
+  end
+  def test_it_can_put_in_x
+    board = Board.new
+    expected =
+    "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nx......"
+    board.place_piece("A")
+    assert_equal expected, board.print_layout
+
+
   end
 end
